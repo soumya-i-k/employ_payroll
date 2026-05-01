@@ -8,7 +8,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     private static final String URL = "jdbc:mysql://localhost:3306/rnsitdb";
     private static final String USER = "root";
-    private static final String PASS = "YOUR_PASSWORD";
+    private static final String PASS = "Kani1290@Hele";
 
     @Override
     public void addEmployee(EmployeeDTO e) {
