@@ -1,29 +1,114 @@
-# 🧾 Payroll Management System (Java + JDBC)
+# Payroll Management System
 
-## 📌 Project Overview
-The **Payroll Management System** is a console-based Java application developed using **Object-Oriented Programming (OOP)** concepts and **JDBC** for database connectivity.  
-This project helps manage employee payroll details such as salary, department, and employee records efficiently using a MySQL database.
-
----
-
-## 🎯 Features
-- Add new employee details  
-- View employee details by ID  
-- View all employees  
-- Update employee salary and details  
-- Delete employee records  
-- MySQL database integration using JDBC  
-- Menu-driven console interface  
+A desktop-based **Payroll Management System** built using **Java Swing**, **JDBC**, and **MySQL**.
+The application provides a graphical interface to manage employee salary records while following a structured layered architecture.
 
 ---
 
-## 🛠️ Technologies Used
-- **Programming Language:** Java  
-- **Database:** MySQL  
-- **Database Connectivity:** JDBC  
-- **IDE:** Eclipse / IntelliJ IDEA  
-- **JDK Version:** Java 8 or above  
+## Features
+
+* Add employee payroll details through GUI
+* View all employee records in a table (JTable)
+* Update salary information *(backend ready)*
+* Delete employee records by ID
+* Basic input validation through service layer
 
 ---
 
-## 📂 Project Structure
+## Tech Stack
+
+* Java (Swing)
+* JDBC
+* MySQL
+* SQL
+
+---
+
+## Project Structure
+
+```id="pl1"
+Payroll-Management-System/
+│
+├── src/
+│   ├── dao/        → database interaction (JDBC)
+│   ├── dto/        → employee payroll data model
+│   ├── service/    → business logic & validation
+│   ├── ui/         → Swing GUI
+│   └── mysql-connector-j-9.x.x.jar
+│
+├── .gitignore
+└── README.md
+```
+
+---
+
+## Architecture Overview
+
+The project follows a layered architecture to separate responsibilities:
+
+* **DTO** – represents employee and salary data
+* **DAO** – handles database operations using JDBC
+* **Service** – manages validations and business rules
+* **UI** – provides a graphical interface for user interaction
+
+---
+
+## Database Setup
+
+```sql id="pl2"
+CREATE DATABASE rnsitdb;
+USE rnsitdb;
+
+CREATE TABLE employees (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    department VARCHAR(100),
+    salary DOUBLE
+);
+```
+
+---
+
+## Running the Project
+
+1. Ensure MySQL server is running
+2. Update database credentials in:
+
+   ```
+   dao/EmployeeDAOImpl.java
+   ```
+3. Compile the project:
+
+   ```bash
+   javac -d . -cp src/mysql-connector-j-9.x.x.jar src/*/*.java
+   ```
+4. Run the application:
+
+   ```bash
+   java -cp ".;src/mysql-connector-j-9.x.x.jar" ui.EmployeeUI
+   ```
+
+---
+
+## Future Improvements
+
+* Salary calculation module (bonuses, deductions)
+* Search employees by name or department
+* Advanced UI using layout managers
+* Authentication system
+* Export payroll reports
+
+---
+
+## What I Learned
+
+* Applying layered architecture in Java applications
+* Integrating Java Swing with MySQL using JDBC
+* Managing structured employee data using SQL
+* Building interactive desktop interfaces
+
+---
+
+## Author
+
+Soumya Ishwar Kambar
